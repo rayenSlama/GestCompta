@@ -1,0 +1,98 @@
+<div class="col-md-12 col-md-offset-2">
+  <div class="col-md-12 col-md-offset-1" >
+    <div class="col-md-11">
+      
+      <div class="card-header card-header-danger" style="padding-left:-35px" >
+        <div class="col-md-5">
+          <h4 class="card-title">Modification Tiers</h4>
+   </div>
+   <div class=" pull-right">
+    <button type="button"  class="btn btn-outline-dark ml-1" [mat-dialog-close]>
+      <i class="fa fa-close" style="color:antiquewhite"></i></button>
+   </div>
+   </div>
+  </div>
+    <form [formGroup]="this.crudApi.dataForm" (ngSubmit)="onSubmit()" style="padding-top:60px;">
+      <input type="hidden"  formControlName="id" id="id">
+      <div class="form-group">
+        <label>Code </label>
+        <input type="text" class="form-control" formControlName="code" id="code">
+      </div>
+     
+  <!--    <div class="form-group">
+        <label>Type</label>
+       
+        <select class="form-control" formControlName="type_tier" id="type_tier">
+        <option value="0">-Select-</option>
+        <option>Fournisseur</option>
+        <option>Client</option>
+        <option>Agent</option>
+        <option>Autre</option>
+        </select>
+
+      </div>-->
+
+      <div class="form-group">
+        <label>Libelle</label>
+        <input type="text" class="form-control" formControlName="libelle" id="libelle">
+        
+      </div>
+      <div class="form-group">
+        <label>Adresse</label>
+        <input type="text" class="form-control" formControlName="adresse" id="adresse">
+        
+      </div>
+      <div class="form-group">
+        <label>Téléphone</label>
+        <input type="text" class="form-control" formControlName="tel" id="tel">
+        
+      </div>
+      <div class="form-group">
+        <label>Fax </label>
+        <input type="text" class="form-control" formControlName="fax" id="fax">
+        
+      </div>
+
+        <div class="form-group">
+            <label>Email </label>
+            <input type="text" class="form-control" formControlName="email" id="email">
+            
+          </div>
+          <div class="form-group">
+            <label>Mat.Fisc </label>
+            <input type="text" class="form-control" formControlName="matfisc" id="matfisc">
+            
+          </div>
+          <div class="form-group">
+            <label>Login </label>
+            <input type="text" class="form-control" formControlName="login" id="login">
+            
+          </div>
+          <div class="form-group">
+            <label>Password </label>
+            <input type="text" class="form-control" formControlName="pwd" id="pwd">
+            
+          </div>
+
+    
+        <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+        <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="fa fa-close"></i> Close</button>
+    
+
+
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

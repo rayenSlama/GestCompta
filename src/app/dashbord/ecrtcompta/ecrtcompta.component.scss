@@ -1,0 +1,151 @@
+
+
+body{
+    background-color: blue;
+}
+.likHref {
+    width: 520px;
+    position: absolute;
+    right: 125px;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+}
+
+.icone_headerr a i{width: 32px;height: 32px;border-radius: 5px;color: #fff; text-align: center;line-height: 32px;font-size: 14px; background: #11446e}
+.icone_headerr a.active i,.icone_headerr a:hover i{ background: #ef8c0e}
+.likHref a {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    text-align: center;
+    font-size: 14px;
+    color: #11446e;
+    float: left;
+    padding-right: 22px;
+    text-decoration: none;
+	line-height: 37px;
+}
+
+.likHref a:hover {
+    color: #ef8c0e;
+}
+
+.likHref a.active {
+    color: #ef8c0e;
+}
+
+.likHref a:last-child {
+    margin: 0 !important;
+}
+
+
+
+/*.img1{
+
+    width :150px;
+    height:350px;
+
+}*/
+
+.shop-menu ul li {
+	display:inline-block;
+  padding-left: 0px;
+  padding-right: 15px;
+}
+
+.shop-menu ul li:last-child {
+  padding-right: 0;
+}
+
+
+.shop-menu ul li a {
+  background: #FFFFFF;
+  color: #696763;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  font-weight: 350;
+  padding:0;
+  padding-right: 0;
+  margin-top: 0px;
+}
+
+
+.shop-menu ul li a i{
+	margin-right:3px;
+	margin-top:30px; 
+}
+
+
+.shop-menu ul li a:hover {
+	color:#fe980f;
+	background:#fff;
+}
+
+
+#header{
+    background: url("/assets/img/komptab2.JPG") no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+
+}
+
+
+
+
+
+
+
+
+
+div.scroll
+{
+
+height:500PX;
+FLOAT: left;
+
+padding: 1%;
+overflow:scroll;
+}
+
+label
+{
+    font-weight: bold;
+
+   color :"#0000FF";
+
+}
+
+div.scroll
+{
+
+height:500PX;
+FLOAT: left;
+
+padding: 1%;
+overflow:scroll;
+}
+h1
+{
+    font-size: 40px; 
+    text-align: center;
+    /* Titres de 40 pixels */
+}
+th
+{
+    font-size: 18px; 
+    text-align: center;
+    /* Titres de 40 pixels */
+}
+label
+{
+    font-weight: bold;
+
+   color :"#0000FF";
+
+}

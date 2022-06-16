@@ -1,0 +1,75 @@
+<!--<header class="header header--homepage" style="background-image: url('https://www.dekegeleer.be/content/uploads/2018/12/hompage.jpg');">
+    <div class="header__title">
+        <h1>Cabinet d’expertise comptable</h1>
+        <p>Votre réussite : Notre ambition</p>
+    </div>
+
+    <div class="scroll-animation"></div>
+</header>-->
+ <ngb-carousel
+ [showNavigationArrows]="true" 
+ [showNavigationIndicators]="true"
+ interval="8000"
+ [keyboard]="true"
+
+ [activeId]="'secondSlide'"
+ >
+    <ng-template ngbSlide id="firstSlide">
+      <div class="picsum-img-wrapper">
+        <img src="assets/img/hompage.jpg" alt="Angular Carousel 1">
+      </div>
+      <div class="carousel-caption">
+       
+					<div class="row">
+						<div class="col-xl-6 col-lg-7" >
+							<h3>Les programmes de comptabilité </h3>
+							<h2>s’adressent principalement</h2>
+							<p style="color: #FF9925;"> aux indépendants et aux PME</p>
+							<p style="color: #FF9925;">qui doivent par conséquent réaliser efficacement une comptabilité</p>
+						</div>
+					</div>
+      </div>
+    </ng-template>
+
+
+    <ng-template ngbSlide id="secondSlide">
+      <div class="picsum-img-wrapper">
+        <img src="assets/img/compta6.jpg" width="1300px:" alt="Angular Carousel 2">
+      </div>
+      <div class="carousel-caption">
+       
+						
+							<div class="col-xl-6 col-lg-7 text-white">
+								<span>logiciel spécialisé</span>
+								<h2>en gestion comptable et financière</h2>
+								<p>est également utile dans de nombreux </p>
+								<p>domaines différents</p>
+							</div>
+						</div>
+				
+    </ng-template>
+
+
+
+   <ng-template ngbSlide id="thirdSlide">
+      <div class="picsum-img-wrapper">
+        <img src="assets/img/compta12.webp" width="1200px;" height="600px;" alt="Angular Carousel 3">
+      </div>
+      <div class="carousel-caption">
+       
+					<div class="row">
+						<div class="col-xl-6 col-lg-7 text-white">
+							<span>Module</span>
+							<h2>Comptabilité générale</h2>
+							<p style="color:#900C3F; font-size: 16px;">Notre fiduciaire vous aide à tenir votre comptabilité </p>
+							<p style="color:#900C3F; font-size: 18px;">et vous conseille dans l’organisation de votre comptabilité, votre outil fiscal.</p>
+						</div>
+					</div>
+      </div>
+    </ng-template>
+
+
+
+
+  </ngb-carousel>
+  

@@ -1,0 +1,171 @@
+.likHref {
+    width: 520px;
+    position: absolute;
+    right: 125px;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+}
+
+.icone_headerr a i{width: 32px;height: 32px;border-radius: 5px;color: #fff; text-align: center;line-height: 32px;font-size: 14px; background: #11446e}
+.icone_headerr a.active i,.icone_headerr a:hover i{ background: #ef8c0e}
+.likHref a {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    text-align: center;
+    font-size: 14px;
+    color: #11446e;
+    float: left;
+    padding-right: 22px;
+    text-decoration: none;
+	line-height: 37px;
+}
+
+.likHref a:hover {
+    color: #ef8c0e;
+}
+
+.likHref a.active {
+    color: #ef8c0e;
+}
+
+.likHref a:last-child {
+    margin: 0 !important;
+}
+
+div.scroll
+{
+
+height:500PX;
+FLOAT: left;
+
+padding: 1%;
+overflow:scroll;
+}
+h1
+{
+    font-size: 80px; 
+    text-align: center;
+    /* Titres de 40 pixels */
+}
+label
+{
+    font-weight: bold;
+
+   color :"#0000FF";
+
+}
+
+div.scroll
+{
+
+height:500PX;
+FLOAT: left;
+
+padding: 1%;
+overflow:scroll;
+}
+h1
+{
+    font-size: 40px; 
+    text-align: center;
+    /* Titres de 40 pixels */
+}
+th
+{
+    font-size: 15px; 
+ 
+    /* Titres de 40 pixels */
+}
+td{
+    font-size:13px;
+}
+label
+{
+    font-weight: bold;
+
+   color :"#0000FF";
+
+}
+
+
+.thead-orange{
+
+    color:#ef8c0e
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 15px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(224, 10, 10);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 16px;
+    left: 7px;
+    bottom: 0px;
+    background-color: rgb(243, 245, 243);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+
+  
+  
+  input:checked + .slider {
+    background-color: #14a30f;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #eaee08;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 14px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+
+
+
+
+
+
+
+
+  
+

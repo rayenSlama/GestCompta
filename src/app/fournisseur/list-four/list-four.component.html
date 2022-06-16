@@ -1,0 +1,158 @@
+
+<div *ngIf="this.userService.admin" class="container">
+
+  <header id="header"><!--header-->
+    <div class="header_top"><!--header_top-->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="contactinfo">
+                        <ul class="nv nav-pills" style="list-style: none;">
+                         <!--  <li>
+                                <a><i class="fa fa-user"></i>Welcome Admin, {{name}}</a>
+                             </li>--> 
+                            <li style="padding-left:10px;"><a ><i class="fa fa-phone"></i>+216 71 95 12 48</a></li>
+                            <li style="padding-left:25px;"><a href="#"><i class="fa fa-envelope"></i>    arabsoft@arabsoft.com.tn</a></li>
+
+                        </ul>
+                        
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="social-icons pull-right">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                       </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--/header_top-->
+    
+
+    <div class="header-middle"><!--header-middle-->
+      <div class="container">
+          <div class="row">
+
+           <!--   <div class="logo pull-left">
+                  <a  [routerLink]="['']"><img src="assets/img/logo.JPG" alt="" style="margin-left: 0px;" width="100px"/></a>
+ </div>-->  
+
+
+
+              <div class="col-sm-3">
+                  <div class="logo pull-left">
+                      <a  [routerLink]="['']"><img src="assets/img/compt.JPG" alt="" style="margin-top: 20px;"/></a>
+                  </div>
+              </div>
+      <!---->       
+     
+         
+
+      <!---->      
+              <div class="col-sm-9">
+                  <div class="likHref icone_headerr">
+                      <a href="http://www.arabsoft.com.tn/" class=" active"><i class="fa fa-home"></i> Accueil</a>
+                      <a href="http://www.arabsoft.com.tn/a-propos" class=" "><i class="fa fa-align-justify"></i> A Propos</a>
+                      <a href="http://www.arabsoft.com.tn/contactez-nous1" class=" "><i class="fa fa-envelope"></i> Contactez-nous</a>
+                  </div>
+
+
+
+                  <div class="shop-menu pull-right">
+                      <ul>
+                      
+                          <li><a [routerLink]="['/profile']"><i class="fa fa-user"></i> Account</a></li>
+                        <li>
+                            <a>
+                              <i class="fa fa-bell" aria-hidden="true"></i>
+                              <app-msgiconbtn number="5"></app-msgiconbtn>
+                            </a>
+                            </li> 
+                            
+                          <li  (click)="logout()"><a  href="javascript:void(0)"><i class="fa fa-sign-out"></i> Logout</a></li>
+
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div><!--/header-middle-->
+
+
+
+
+
+
+
+  <div class="header-bottom"><!--header-bottom-->
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-9">
+            <div class="mainmenu pull-left">
+            </div>
+          </div>
+          <div class="col-sm-3">
+             <div class="search_box pull-right" >
+                 <input type="text" placeholder="Search" style="height: 50px;"/>
+             </div>
+         </div>
+       </div>
+     </div>
+   </div><!--/header-bottom-->
+</header>
+
+</div>
+
+
+
+
+
+
+<mat-toolbar color="primary">
+     
+        <div>
+          Liste Fournisseur
+        </div>
+        
+      </mat-toolbar>
+    
+       <div class="col-md-12">
+         <div class="table-responsive">
+          <table class="table table-bordered table-responsive-sm table-responsive-md
+         table-responsive-lg">
+          <thead class="thead-orange">
+          <tr>
+          <th class="text-left" scope="col">Code</th>
+          <th class="text-left" scope="col">libelle</th>
+          <th class="text-left" scope="col">adresse</th>
+          <th class="text-left" scope="col">Action</th>
+          <th>
+           <a class="btn btn-outline-success" (click)="addFour()"><i class="fa fa-plus-square"></i> Ajouter</a>
+          </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of crudApi.list | paginate: { itemsPerPage: 5, currentPage: p } ">
+          <th class="text-left" scope="col">{{item.code}}</th>
+          <td class="text-left" scope="col">{{item.libelle}}</td>
+          <td class="text-left" scope="col">{{item.adresse}}</td>
+          <td><button class="btn btn-warning" style="margin-left: 20px;" (click) = "selectData(item)">
+            <i class="fa fa-pencil-square-o" ></i></button>
+         <button class="btn btn-danger" style="margin-left:20px;" (click) = "removeData(item.id)">
+            <i class="fa fa-trash-o"></i></button></td>
+             </tr>
+               </tbody>
+               </table>
+               </div>
+               <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  
+             </div>
+    
+    
+    
+    

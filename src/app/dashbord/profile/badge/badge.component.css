@@ -1,0 +1,36 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    padding: 70px 70px 50px 90px;
+  /*  align-items: center;*/
+    margin-top: 80px;
+    margin-left: 60px;
+    background-image: url("src/assets/img/card3.jpg");
+  }
+  
+/*.ggg{
+
+  margin-left:70px;
+}*/
+  .imgg{
+    overflow:hidden;
+      -webkit-border-radius:50px;
+      -moz-border-radius:50px;
+      border-radius:50px;
+      width:90px;
+      height:90px;
+  }
+  
+  .card h5{
+    margin-bottom: 20px;
+   
+  }
+  
+  /*.card-body{
+    background-image: url("src/assets/img/card.JPG");
+    
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }*/

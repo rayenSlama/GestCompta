@@ -1,0 +1,264 @@
+<mat-toolbar color="primary">
+    <div fxHide.gt-xs>
+        <button mat-icon-button >
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <div>
+    <h1>Ecriture</h1> 
+    </div>
+  </mat-toolbar>  
+    <form [formGroup]="this.formData" (ngSubmit)="onSubmit()" #localForm="ngForm">
+      <input type="hidden"  formControlName="id" id="id">
+      <input type="hidden"  formControlName="code_devise" id="code_devise">
+      <input type="hidden"  formControlName="taux" id="taux">
+      
+      
+
+      <input type="hidden" class="form-control" formControlName="numero" id="numero">
+
+      
+   <!--  <div class="form-group col-md-6">
+     
+      <label>Libellé Tier </label>
+        <select class="form-control" formControlName="code" id="code"
+        (change)="onSelectCateg($event.target.value)">
+        <option value="0">-Select-</option>
+        <option *ngFor="let item of TierList" value="{{item.code}}">{{item.libelle}}</option>
+        </select>
+      </div>--> 
+      <div class="form-group">
+        <label><strong>Ligne Ecriture : </strong></label>
+        <input  type="number"  class="form-control" formControlName="lig" id="lig">
+    </div>  
+
+
+
+
+<!--
+
+    <div class="ng-autocomplete">
+      <ng-autocomplete
+        [data]="comptes"
+        [searchKeyword]="keyword"
+        placeholder="Enter the compte Name"
+        (selected)='selectEvent($event)'
+        (inputChanged)='onChangeSearch($event)'
+        (inputFocused)='onFocused($event)'
+        historyIdentifier="comptes"
+        [itemTemplate]="itemTemplate"
+        [notFoundTemplate]="notFoundTemplate">
+      </ng-autocomplete>
+    
+      <ng-template #itemTemplate let-item>
+        <a [innerHTML]="item.numcompte"></a>
+        <h5>num_cpt: {{ item.numcompte }} -- libellé: <span [innerHTML]="item.libellec"></span></h5>
+      </ng-template>
+    
+      <ng-template #notFoundTemplate let-notFound>
+        <div [innerHTML]="notFound"></div>
+      </ng-template>
+    </div>
+  -->
+
+
+
+
+
+
+
+
+
+  <!-- <div class="form-group col-md-4">
+      <button (click)="increment()"> + </button>
+      <button (click)="decrement()"> - </button>
+    </div>--> 
+      
+
+    <!-- <mat-form-field>
+       <mat-label> Compte</mat-label>
+       <input formControlName="numcompte" matInput type="text" [matAutocomplete]="auto"  />
+       <mat-autocomplete #auto="matAutocomplete">
+         <mat-option *ngFor="let item of filteredComptes |async" [value]="item.numcompte">{{item.libelle}}</mat-option>
+       </mat-autocomplete>
+     </mat-form-field>-->
+
+
+           <!--  
+          <select  class="form-control" formControlName="num_compte" id="num_compte" 
+             (change)="selectPrice($event.target)">
+                <option value="0">-Select-</option>
+                <option *ngFor="let item of TierList" value="{{item.code}}">{{item.libelle}}</option>
+           </select>-->
+       <div class="form-group col-md-5">
+              <label>Compte :</label>
+     <div class="ng-autocomplete">
+            <ng-autocomplete
+              [data]="comptes"
+              [searchKeyword]="keyword"
+              
+              placeholder="Entrez le compte"
+              (selected)='selectEvent($event)'
+              (inputChanged)='onChangeSearch($event)'
+              (inputFocused)='onFocused($event)'
+              historyIdentifier="comptes"
+              [itemTemplate]="itemTemplate"
+              [notFoundTemplate]="notFoundTemplate"
+             >
+            </ng-autocomplete>
+            <ng-template #itemTemplate let-item>
+              <h5>Num_cpt: {{item.numcompte}} -- libelle: <span [innerHTML]="item.libellec"></span></h5>
+         <!--     <h5>Libelle: {{item.libelle}} -- Num_cpt: <span [innerHTML]="item.numcompte"></span></h5>-->
+       </ng-template>
+            <ng-template #notFoundTemplate let-notFound>
+              <div [innerHTML]="notFound"></div>
+            </ng-template>
+          </div>
+          <div *ngIf="localForm.touched && this.formData.get('numcompte').invalid" class="text-danger"> Veuillez séléctioner un compte</div>
+</div>
+
+
+<div class="form-group col-md-12" >
+  <label>Pièce: </label>
+  <input  type="text"  class="form-control" formControlName="num_piece" id="num_piece">
+</div> 
+
+
+
+    
+
+
+     <!--  <input type="text" class="form-control" formControlName="code" id="code" readonly  >
+      </div>--> 
+  <!--   <div class="form-group ">
+        <label>Libelle </label>
+        <input type="text" class="form-control" formControlName="libelle" id="libelle">
+      </div>
+    </div>--> 
+     <!-- <div class="form-group row col-md-12">
+      
+        <div class="form-group col-md-6">
+        <label>date création  </label>
+        <input type="date" class="form-control" formControlName="date_creation" id="date_creation">
+      </div>-->
+     
+   <!--   <div class="form-group col-md-3">
+        <label>Aux </label>
+        <select class="form-control" formControlName="aux" id="aux">
+          <option value=O>O</option>
+          <option value=N>N</option>
+        </select>
+      </div>-->
+
+ <!--     <div class="form-group col-md-8" style="padding-top:25px;">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend col-md-2" style="padding-left: 2px;">
+            <label class="input-group-text" style="width:90px;" for="inputGroupSelect01">Devise</label>
+          </div>
+          <select class="form-control" formControlName="code_devise" id="code_devise"  (change)="OnSelectDevise($event.target)">
+            <option selected>Choisir...</option>
+            <option  *ngFor="let devise of this.DeviseList" value="{{devise.code_devise}}">{{devise.code_devise}}</option>
+          </select>
+        </div>
+</div>  -->
+
+
+      <div class="form-group col-md-4">
+        <label>Sens</label>
+        <select class="form-control" formControlName="sens" id="sens">
+          <option value=D>D</option>
+          <option value=C>C</option>
+        </select>
+      </div>
+ 
+      <div class="form-group col-md-12" >
+        <label>Montant: </label>
+        <input  type="number"  class="form-control text-right" formControlName="montant" id="montant" required (keyup)="cal()">
+    </div> 
+
+     <!-- <div class="form-group  col-md-6">
+        <label>Bloqué </label>  
+        <input type="checkbox" class="form-control" formControlName="bloque" id="bloque">
+      </div>-->
+      <input type="hidden" class="form-control" formControlName="totdeb" id="totdeb" readonly>
+      <input type="hidden" class="form-control" formControlName="totcred" id="totcred" readonly>
+      <input type="hidden" class="form-control" formControlName="solde" id="solde" readonly>
+
+
+      
+      <div class="form-group col-md-12">
+        <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+        <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="fa fa-close"></i> Annuler</button>
+      
+      </div>
+  </form>
+   
+      
+      
+      
+  
+
+<!--<h4 class="dislay-4">Commande </h4>
+<hr>
+<form [formGroup]="this.formData"  (ngSubmit)="onSubmit()">
+  
+    <input type="hidden" class="form-control" formControlName="id" id="id">
+    <input type="hidden" class="form-control" formControlName="numero" id="id_commande">
+    <input type="hidden" class="form-control" formControlName="lib_art" id="libart">
+ 
+  <div class="form-group">
+        <label>Ligne</label>
+        <div class="input-group">
+              <input class="form-control" formControlName="ligne" id="ligne">
+        </div>
+  </div>
+  <div class="form-group">
+      <label>Libelle </label>
+      <div class="input-group">
+            <input class="form-control" formControlName="lib_art" id="lib_art">
+      </div>
+  </div>
+  <div class="form-group">
+    <label>Prix Unitaire : </label>
+    <div class="input-group">
+          <input class="form-control" formControlName="pu" id="pu" (keyup)="cal()" 
+          [class.is-invalid]="!isValid && formData.value.pu==0">
+          
+    </div>
+  </div>
+
+    <div class="form-group">
+       <label>Quantité</label>
+      <div class="input-group">
+        <input name="qte"  class="form-control" formControlName="qte" id="qte" (keyup)="cal()"
+        [class.is-invalid]="!isValid && formData.value.qte==0">
+    </div>
+    </div>
+    <div class="form-group">
+        <label>Remise : </label>
+       <div class="input-group">
+         <input name="qte"  class="form-control" formControlName="rem" id="rem" (keyup)="cal()"
+         [class.is-invalid]="!isValid && formData.value.rem==0">
+     </div>
+     </div>
+    <div class="form-group">
+        <label>Tva</label>
+      <div class="input-group">
+        <input class="form-control" formControlName="tva" id="tva" (keyup)="cal()"> 
+      </div>
+    </div>    
+    <div class="form-group">
+      <label>Totht </label>
+      <div class="input-group">
+        <input type = "text" class="form-control" formControlName="totht" id="totht" readonly>
+     </div>
+    </div>
+    <input type="hidden" class="form-control" formControlName="tottva" id="tottva" readonly>
+    <input type="hidden" class="form-control" formControlName="totttc" id="totttc" readonly>
+    <div class="form-group">
+      <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+      <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="fa fa-close"></i> Close</button>
+    </div>
+</form>
+
+-->

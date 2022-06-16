@@ -1,0 +1,161 @@
+<header id="header"><!--header-->
+    <div class="header_top"><!--header_top-->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="contactinfo">
+                        <ul class="nv nav-pills" style="list-style: none;">
+                            <li>
+                                <a><i class="fa fa-user" ></i>Utilisateur, {{name}}</a>
+                             </li>
+                            <li ><a style="padding-left:25px;"><i class="fa fa-phone"></i>+216 71 95 12 48</a></li>
+                            <li style="padding-left:30px;"><a href="#"><i class="fa fa-envelope"></i>    arabsoft@arabsoft.com.tn</a></li>
+
+                        </ul>
+                        
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="social-icons pull-right">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                       </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--/header_top-->
+    
+    <div class="header-middle"><!--header-middle-->
+        <div class="container">
+            <div class="row">
+
+             <!--   <div class="logo pull-left">
+                    <a  [routerLink]="['']"><img src="assets/img/logo.JPG" alt="" style="margin-left: 0px;" width="100px"/></a>
+   </div>-->  
+
+
+
+                <div class="col-sm-3">
+                    <div class="logo pull-left">
+                        <a  [routerLink]="['']"><img src="assets/img/compt.JPG" alt="" style="margin-top: 20px;"/></a>
+                    </div>
+                </div>
+        <!---->       
+       
+           
+
+        <!---->      
+                <div class="col-sm-9">
+                    <div class="likHref icone_headerr">
+                        <a href="http://www.arabsoft.com.tn/" class=" active"><i class="fa fa-home"></i> Accueil</a>
+                        <a href="http://www.arabsoft.com.tn/a-propos" class=" "><i class="fa fa-align-justify"></i> A Propos</a>
+                        <a href="http://www.arabsoft.com.tn/contactez-nous1" class=" "><i class="fa fa-envelope"></i> Contactez-nous</a>
+                    </div>
+
+
+
+                    <div class="shop-menu pull-right">
+                        <ul>
+                            
+                            <li><a href="javascript:void(0)"><i class="fa fa-user"></i> Account</a></li>
+                        
+
+                            <li  (click)="logout()"><a  href="javascript:void(0)"><i class="fa fa-sign-out"></i> Logout</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--/header-middle-->
+
+    <div class="header-bottom"><!--header-bottom-->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9">
+                 <!--  <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>--> 
+                    <div class="mainmenu pull-left">
+
+                       
+                            <a  [routerLink]="['']"><img src="assets/img/logodd.JPG" alt="" style="margin-left: 0px;" width="70px;" height="50px;"/></a>
+</div>
+<div class="mainmenu">
+                        <nav class="navbar navbar-light" style="background-color: #094D75;">
+                        <ul class="nav navbar-nav collapse navbar-collapse">
+                            <li class="dropdown"><a class="active">Paramétres<i class="fa fa-angle-down"></i></a>
+                                <ul role="menu" class="sub-menu">
+                                    <li><a [routerLink]="['/clients']">Clients</a></li>
+                                    <li><a [routerLink]="['/fournisseurs']">Fournisseurs</a></li>
+                                    <li><a [routerLink]="['/tiers']">Gestion des Tiers</a></li>
+                                  <li><a [routerLink]="['/comptes']">Compte</a></li>
+                                  <li><a href="#">Société</a></li> 
+                            <!--     <li><a [routerLink]="['/checkout']">Checkout</a></li> 
+                                  <li><a [routerLink]="['/cart']">Cart</a></li> 
+                                  <li><a [routerLink]="['/login']">Login</a></li> 
+                                  <li  *ngIf="isLogin" (click)="logout()"><a href="javascript:void(0)">Logout</a></li>--> 
+                               </ul>
+                       </li>
+
+                            <li class="dropdown"><a class="active">Plan comptable<i class="fa fa-angle-down"></i></a>
+                                <ul role="menu" class="sub-menu">
+                                    
+                            
+                                    <li  (click)="logout()"><a href="javascript:void(0)">Logout</a></li>
+                                </ul>
+                            </li> 
+                            <li class="dropdown"><a class="active">Ecritures comptables<i class="fa fa-angle-down"></i></a>
+                                <ul role="menu" class="sub-menu">
+                                    <li><a [routerLink]="['/add-ecrt']">Saisie des écritures</a></li>
+                                    <li><a [routerLink]="['/journal']">Consultation des écritures</a></li>
+                                </ul>
+                            </li> 
+                            <li><a class="active" [routerLink]="['/contact-us']">Editions<i class="fa fa-angle-down"></i></a>
+                            <ul role="menu" class="sub-menu">
+                                <li><a [routerLink]="['/jrncomptable']">JOURNAL</a></li>
+                                <li><a [routerLink]="['/grandLivre']">GRAND LIVRE</a></li>
+                                <li><a [routerLink]="['/balance']">BALANCE COMPTABLE</a></li>
+                            </ul>
+                       
+                            </li>
+
+                            
+                            <li><a class="active" [routerLink]="['**']">404</a></li>
+                            
+                        </ul>
+                        </nav>
+                   </div>
+                </div>
+
+                <div class="col-sm-1" style="width:70px; padding-left:1px;">
+                    <form [formGroup]="this.exercice.dataForm">
+                        <div class="form-group">
+                        <!--  <label style="font-size: 15px;">Exercice :</label>-->
+                          <select class="form-control" type="text" name="annee" id="annee" placeholder="Exercice"  (change)="OnSelectExercice($event.target)">
+                            <option selected>Exercice...</option>
+                            <option  *ngFor="let exercice of this.ExerciceList" value="{{exercice.annee}}">{{exercice.annee}}</option>
+                          </select>
+                        </div>
+                        </form>
+                </div>
+
+                <div class="col-sm-2">
+                    <div class="search_box pull-right" >
+                        <input type="text" placeholder="Search" style="height: 50px;" [(ngModel)]="term"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--/header-bottom-->
+</header><!--/header-->

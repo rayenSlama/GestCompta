@@ -1,0 +1,36 @@
+.likHref {
+    width: 520px;
+    position: absolute;
+    right: 125px;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+}
+
+.icone_headerr a i{width: 32px;height: 32px;border-radius: 5px;color: #fff; text-align: center;line-height: 32px;font-size: 14px; background: #11446e}
+.icone_headerr a.active i,.icone_headerr a:hover i{ background: #ef8c0e}
+.likHref a {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    text-align: center;
+    font-size: 14px;
+    color: #11446e;
+    float: left;
+    padding-right: 22px;
+    text-decoration: none;
+	line-height: 37px;
+}
+
+.likHref a:hover {
+    color: #ef8c0e;
+}
+
+.likHref a.active {
+    color: #ef8c0e;
+}
+
+.likHref a:last-child {
+    margin: 0 !important;
+}

@@ -1,0 +1,160 @@
+
+  <div class="header_top"><!--header_top-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="contactinfo">
+                    <ul class="nv nav-pills" style="list-style: none;">
+                     <!--  <li>
+                            <a><i class="fa fa-user"></i>Welcome Admin, {{name}}</a>
+                         </li>--> 
+                        <li style="padding-left:10px;"><a ><i class="fa fa-phone"></i>+216 71 95 12 48</a></li>
+                        <li style="padding-left:25px;"><a href="#"><i class="fa fa-user"></i>  Utilisateur, {{name}}</a></li>
+
+                    </ul>
+                    
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="social-icons pull-right">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                   </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!--/header_top-->
+
+
+<div class="header-middle"><!--header-middle-->
+  <div class="container">
+      <div class="row">
+
+       <!--   <div class="logo pull-left">
+              <a  [routerLink]="['']"><img src="assets/img/logo.JPG" alt="" style="margin-left: 0px;" width="100px"/></a>
+</div>-->  
+
+
+
+          <div class="col-sm-3">
+              <div class="logo pull-left">
+                  <a  [routerLink]="['']"><img src="assets/img/compt.JPG" alt="" style="margin-top: 20px;"/></a>
+              </div>
+          </div>
+  <!---->       
+ 
+     
+
+  <!---->      
+          <div class="col-sm-9">
+              <div class="likHref icone_headerr">
+                  <a href="http://www.arabsoft.com.tn/" class=" active"><i class="fa fa-home"></i> Accueil</a>
+                  <a href="http://www.arabsoft.com.tn/a-propos" class=" "><i class="fa fa-align-justify"></i> A Propos</a>
+                  <a href="http://www.arabsoft.com.tn/contactez-nous1" class=" "><i class="fa fa-envelope"></i> Contactez-nous</a>
+              </div>
+
+
+
+              <div class="shop-menu pull-right">
+                  <ul>
+                  
+                      
+                    <li>
+                        <a>
+                          <i class="fa fa-bell" aria-hidden="true"></i>
+                          <app-msgiconbtn number="5"></app-msgiconbtn>
+                        </a>
+                        </li> 
+                        
+                      <li  (click)="logout()"><a  href="javascript:void(0)"><i class="fa fa-sign-out"></i> Logout</a></li>
+
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+<body>
+<mat-toolbar color="primary" style=" margin-top: 60px; margin-left: 120px; width: 82%;" >
+
+<div class="pull-left">
+  Liste de écritures comptables
+</div>
+<!--<div class=" pull-right">
+<form (ngSubmit)="onChercher(f.value)" #f="ngForm" >
+  <div class="form-group">
+       
+      <input type="text" name="keyword" ngModel>
+      <button type="submit" class="btn btn-danger">
+          <span class="glyphicon glyphicon-search"></span>
+          Recherche</button>
+  </div>
+</form>
+
+</div>-->
+
+
+
+
+<div class="col-sm-10">
+<div class="search_box pull-right" style="padding-right: 70px;">
+
+  <div class="form-group">
+  <input type="text" placeholder="Search" class="form-control" style="height: 40px;" [(ngModel)]="term">
+  </div>
+
+</div>
+
+</div>
+</mat-toolbar>
+<input type="text" style="margin-left: 120px; width: 82%;" [(ngModel)]="SearchText" class="form-control bg-light border-0 small" placeholder="Recherche..." aria-label="Search" aria-describedby="basic-addon2">
+<table class="table table-hover" style="margin-left: 120px; width: 82%;">
+<thead class="thead-light">
+<th class="text-left">N° Ecriture</th>  
+<th class="text-left">Date Ecriture</th>
+<th class="text-left">Code Journal</th>
+<th class="text-left">Compte</th>
+<th class="text-left">Désignation</th>
+<th class="text-left">Libelle</th>
+<th class="text-left">Piéce</th>
+<th class="text-center">Total Débit</th>
+<th class="text-center">Total Crédit</th>
+<th class="text-center">Solde</th>
+<th>
+<a class="btn btn-outline-success" routerLink="/add-ecrt"><i class="fa fa-plus-square"></i> Créer une nouvelle écriture</a>
+</th>
+</thead>
+<tbody>
+<tr *ngFor="let ecriture of Liste| filter:term  | paginate: { itemsPerPage: 7, currentPage: p } ">
+<td>{{ecriture.numecrt}}</td>
+<td>{{ecriture.date_ecrt| date:'dd/MM/yyyy'}}</td>
+<td class="text-left">{{ecriture.code_JRN}}</td>
+<td>{{ecriture.numcompte}}</td>
+<td>{{ecriture.libellec}}</td>
+<td>{{ecriture.libelle}}</td>
+<td>{{ecriture.num_piece}}</td>
+<td class="text-right">{{ecriture.totdeb | number:'0.2'}}</td>
+<td class="text-right">{{ecriture.totcred | number:'0.2'}}</td>
+<td class="text-right">{{ecriture.solde | number:'0.2'}}</td>
+<td>
+<a class="btn text-danger" (click)="onDelete(ecriture.id)"><i class="fa fa-trash fa-lg"></i> </a>
+<a class="btn text-danger" (click)="selectData(ecriture)"><i class="fa fa-pencil fa-lg"></i> </a>
+<a class="btn text-danger" (click)="DetailsData(ecriture)"><i class="fa fa-info fa-lg"></i> </a>
+<a class="btn btn-dark" (click)="generatePdf(ecriture)"><i class="fa fa-file-pdf-o"></i></a>
+</td>
+</tr>
+<div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite"></div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate"><ul class="pagination"></ul></div></div></div>
+</tbody>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
+</table>
+
+
+
+
+

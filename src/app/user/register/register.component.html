@@ -1,0 +1,109 @@
+<body  class="bg-gradient-primary">
+  <div class="container">
+  <div class="row justify-content-center" >
+  <div class="col-xl-7 col-lg-10 col-md-8" style="left:50px; margin-top: 60px;">
+  <div class="card o-hidden border-0 shadow-lg my-5">
+  <div class="card-body p-5">
+  <div class="row">
+  <div class="col-lg-3 d-none d-lg-block justify-content-center">
+  <img src="assets/img/logodd.JPG">
+  </div>
+  <div class="col-lg-8">
+  <div class="p-0">
+  <div class="text-center">
+  <h1 class="h4 text-gray-900 mb-4">Inscription</h1>
+  </div>
+  <form class = "user" [formGroup]="this.crudApi.dataForm" (ngSubmit)="onSubmit()" #localForm="ngForm">
+   <div class="form-group">
+     <input type="text" required class="form-control form-control-user" formControlName="code" id="code"
+       placeholder="Taper votre code utilisateur" />
+  
+    <div *ngIf="localForm.touched && this.crudApi.dataForm.get('code').invalid" class="text-danger"> Code utilisateur invalide</div>
+    </div>
+
+
+
+
+  <div class="form-group">
+    <input type="text" required class="form-control form-control-user" formControlName="username" id="username"
+     placeholder="Société ou nom d'utilisateur" />
+     <div *ngIf="localForm.touched && this.crudApi.dataForm.get('username').invalid" class="text-danger"> Nom invalide</div>
+  </div>
+  <div class="form-group">
+    <input type="text" required class="form-control form-control-user" id="email" formControlName="email"
+     placeholder="Votre Email" uniqueEmail />  
+  <div *ngIf="localForm.touched && this.crudApi.dataForm.get('email').invalid">
+     <div *ngIf="this.crudApi.dataForm.get('email').errors.required" class="text-danger"> L'adresse email est obligatoire</div> 
+     <div  *ngIf="this.crudApi.dataForm.get('email').errors.email" class="text-danger">Adresse email invalide</div>
+     <div  *ngIf="this.crudApi.dataForm.get('email').errors['uniqueEmail']" class="text-danger">Adresse email déja existe!</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <input type="text" required class="form-control form-control-user" id="adresse" formControlName="adresse"
+     placeholder="Votre adresse"> 
+     <div *ngIf="localForm.touched && this.crudApi.dataForm.get('adresse').invalid" class="text-danger"> Adresse invalide</div>   
+  </div>
+  <div class="form-group">
+    <input type="text" required class="form-control form-control-user" id="telephone" formControlName="telephone"
+     placeholder="Votre telephone">   
+     <div *ngIf="localForm.touched && this.crudApi.dataForm.get('telephone').invalid">
+      <div *ngIf="this.crudApi.dataForm.get('telephone').errors.required" class="text-danger">Le champ téléphone est obligatoire</div> 
+      <div  *ngIf="this.crudApi.dataForm.get('telephone').errors.minlength" class="text-danger">Doit contenir 8 entiers</div>
+   </div>
+  </div>
+
+  <div class="form-group col">
+   <label>Role  : </label>
+   <select name = "role"  formControlName="role"  class="form-control" id = "role">
+       <option value = "Admin">Administrateur</option>
+       <option value = "User">Utilisateur</option>
+   </select>
+   <div *ngIf="localForm.touched && this.crudApi.dataForm.get('role').invalid" class="text-danger"> Le role est obligatoire</div>
+  </div>
+
+  <!--
+  <div class="col-md-6">
+    <div class="form-group">
+    <label class="control-label">Date début d'exercice:</label>
+    <input class="form-control" type="date" name="date_debut" id="date_debut">
+    </div>
+ </div>
+ <div class="col-md-6">
+   <div class="form-group">
+   <label class="control-label">Date fin d'exercice :</label>
+   <input class="form-control" type="date" name="date_fin" id="date_fin" >
+   </div>
+ </div>-->
+  <div class="form-group row">
+    <div class="col-sm-6 mb-3 mb-sm-0">
+      <input type="password" required class="form-control form-control-user" id="password" formControlName="password" 
+      placeholder="mot de passe" ><span><i class="fa fa-eye" aria-hidden="true" id="eye" (click)="ffff()"></i></span>
+      <div *ngIf="localForm.touched && this.crudApi.dataForm.get('password').invalid" >
+    <div *ngIf="this.crudApi.dataForm.get('password').errors.required" class="text-danger">Le champ mot de passe est obligatoire</div>
+    <div *ngIf="this.crudApi.dataForm.get('password').errors.minlength" class="text-danger">Mot de passe invalide ! minimum 8 caractéres</div>
+  </div> 
+  </div>
+    <div class="col-sm-6">
+      <input type="password" required class="form-control form-control-user" id="pwdd" formControlName="pwdd"
+       placeholder="Répéter le mot de passe"><span><i class="fa fa-eye" aria-hidden="true" id="eye1" (click)="ffff1()"></i></span>
+    </div>
+  </div>
+  
+   <button class="btn btn-primary btn-user btn-block">Créer un compte</button>
+</form>
+ <hr>
+  <div class="text-center">
+   <a class="size" href="">Vous avez déjà un compte? Connectez!</a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+ 
+                  </div>
+                </div>
+</body>
+
+

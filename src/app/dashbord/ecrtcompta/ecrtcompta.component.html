@@ -1,0 +1,325 @@
+<div class="container">
+
+    <header id="header"><!--header-->
+      <div class="header_top"><!--header_top-->
+          <div class="container">
+              <div class="row">
+                  <div class="col-sm-6">
+                      <div class="contactinfo">
+                          <ul class="nv nav-pills" style="list-style: none;">
+                           <!--  <li>
+                                  <a><i class="fa fa-user"></i>Welcome Admin, {{name}}</a>
+                               </li>--> 
+                              <li style="padding-left:10px;"><a ><i class="fa fa-phone"></i>+216 71 95 12 48</a></li>
+                              <li style="padding-left:25px;"><a href="#"><i class="fa fa-envelope"></i>    arabsoft@arabsoft.com.tn</a></li>
+  
+                          </ul>
+                          
+                      </div>
+                  </div>
+                  <div class="col-sm-6">
+                      <div class="social-icons pull-right">
+                          <ul>
+                              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                              <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                              <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                         </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div><!--/header_top-->
+      
+  
+      <div class="header-middle"><!--header-middle-->
+        <div class="container">
+            <div class="row">
+  
+             <!--   <div class="logo pull-left">
+                    <a  [routerLink]="['']"><img src="assets/img/logo.JPG" alt="" style="margin-left: 0px;" width="100px"/></a>
+   </div>-->  
+  
+  
+  
+                <div class="col-sm-3">
+                    <div class="logo pull-left">
+                        <a  [routerLink]="['']"><img src="assets/img/compt.JPG" alt="" style="margin-top: 20px;"/></a>
+                    </div>
+                </div>
+        <!---->       
+       
+           
+  
+        <!---->      
+                <div class="col-sm-9">
+                    <div class="likHref icone_headerr">
+                        <a href="http://www.arabsoft.com.tn/" class=" active"><i class="fa fa-home"></i> Accueil</a>
+                        <a href="http://www.arabsoft.com.tn/a-propos" class=" "><i class="fa fa-align-justify"></i> A Propos</a>
+                        <a href="http://www.arabsoft.com.tn/contactez-nous1" class=" "><i class="fa fa-envelope"></i> Contactez-nous</a>
+                    </div>
+  
+  
+  
+                    <div class="shop-menu pull-right">
+                        <ul>
+                        
+                            <li><a [routerLink]="['/profile']"><i class="fa fa-user"></i> Account</a></li>
+                          <li>
+                              <a>
+                                <i class="fa fa-bell" aria-hidden="true"></i>
+                                <app-msgiconbtn number="5"></app-msgiconbtn>
+                              </a>
+                              </li> 
+                              
+                            <li  (click)="logout()"><a  href="javascript:void(0)"><i class="fa fa-sign-out"></i> Logout</a></li>
+  
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--/header-middle-->
+  
+  
+  
+  
+  
+  
+  
+    <div class="header-bottom"><!--header-bottom-->
+      <div class="container">
+          <div class="row">
+            <div class="col-sm-9">
+              <div class="mainmenu pull-left">
+              </div>
+            </div>
+            <div class="col-sm-3">
+               <div class="search_box pull-right" >
+                   <input type="text" placeholder="Search" style="height: 50px;"/>
+               </div>
+           </div>
+         </div>
+       </div>
+     </div><!--/header-bottom-->
+  </header>
+
+
+
+
+<mat-toolbar color="primary">
+    <div>
+    <h1>Saisie des Ecritures comptables</h1> 
+    </div>
+    
+  </mat-toolbar>
+<form [formGroup]="this.service.formData" (ngSubmit)="onSubmit()">
+<input  type="hidden"  class="form-control" formControlName="lib_tier" id="lib_tier" >
+<div class="form-group row col-md-9" style="padding-top: 20px;">
+  <div class="form-group col-md-4">
+      <label style="font-size: 15px;">Num Ecriture : </label>
+      <input  type="text"  class="form-control" formControlName="numecrt" id="numecrt" readonly>
+  </div>  
+  <div class="col-md-4 form-group">
+        <label style="font-size: 15px;">Date</label>
+      <input  type="date"  class="form-control" formControlName="date_ecrt"  id="date_ecrt">
+  </div>
+ 
+
+<!--<select class="form-control" formControlName="code" id="code" 
+    (change)="OnSelectTier($event.target)">
+    <option value="0">-Select-</option>
+    <option *ngFor="let tier of this.TierList" value="{{tier.code}}">{{tier.libelle}}</option>
+    </select>-->
+
+<div class="form-group col-md-4">
+  <label style="font-size: 15px;">Type journal: </label>
+  <select class="form-control" formControlName="type_JRN" id="type_JRN"  (change)="OnSelectJournal($event.target)">
+    <option value=" ">-Select-</option>
+    <option *ngFor="let journal of this.JournalList" value="{{journal.type_JRN}}">{{journal.type_JRN}}</option>
+    </select>
+</div>
+
+  <div class="form-group col-md-3">
+    <label style="font-size: 15px;">Code journal : </label>
+    <input  type="text"  class="form-control" formControlName="code_JRN" id="code_JRN" readonly>
+</div>
+
+ <!--<div class="col-md-6 form-group">
+    <label style="font-size: 15px;">Client</label>
+    <select class="form-control" formControlName="code" id="code" 
+    (change)="OnSelectClient($event.target)">
+    <option value="0">-Select-</option>
+    <option *ngFor="let client of this.ClientList" value="{{client.code}}">{{client.libelle}}</option>
+    </select>
+  </div>--> 
+
+  <div class="form-group col-md-3">
+    <label style="font-size: 15px;">Pièce : </label>
+    <input  type="text"  class="form-control" formControlName="num_piece" id="num_piece" >
+</div> 
+
+  <div class="col-md-3 form-group">
+    <label style="font-size: 15px;">Tiers</label>
+    <select class="form-control" formControlName="code" id="code" 
+    (change)="OnSelectTier($event.target)">
+    <option value="0">-Select-</option>
+    <option *ngFor="let tier of this.TierList" value="{{tier.code}}">{{tier.libelle}}</option>
+    </select>
+  </div>
+
+
+  <div class="col-md-3">
+      <label style="font-size: 15px;">Libelle</label>
+      <input class="form-control" formControlName="libelle" id="libelle">
+  </div>
+  </div>
+
+
+
+  <div class="col-md-3" style="padding-top: 21px;">
+    <div class="card mb-3">
+      <div class="card-body" style="height:136px;">
+        <div class="row">
+    <!--      <table class="table table-borderless table-responsive-sm table-responsive-md
+  table-responsive-lg">
+    <thead class="thead-light">
+    
+     <th scope="col">Devise</th>
+     <th scope="col">Taux</th>
+     <th scope="col">Année</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of service.list;let i=index;">
+      <td class="text-center" >{{item.code_devise}}</td> 
+      <td class="text-center">{{item.taux}}</td>  
+      <td class="text-center">{{item.annee}}</td> 
+      </tr>
+      </tbody>
+      </table>-->
+  
+<div class="form-group">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend col-md-4">
+              <label class="input-group-text" for="inputGroupSelect01" style="width:90px;">Devise</label>
+            </div>
+            <select class="form-control" formControlName="code_devise" id="code_devise"  (change)="OnSelectDevise($event.target)">
+              <option selected>Choisir...</option>
+              <option  *ngFor="let devise of this.DeviseList" value="{{devise.code_devise}}">{{devise.code_devise}}</option>
+            </select>
+          </div>
+</div>
+
+        <hr>
+
+        <div class="form-group">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend col-md-3">
+              <label class="input-group-text" for="inputGroupSelect01">Taux</label>
+            </div>
+            <input  type="text"  class="form-control" formControlName="taux" id="taux" readonly>
+          
+       </div>
+      </div>
+
+     
+        
+       <hr>
+        <div class="form-group">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend col-md-3">
+              <label class="input-group-text" style="width:64px ;" for="inputGroupSelect01">Année</label>
+            </div>
+            <input  type="text"   class="form-control" formControlName="annee_devise" id="annee_devise" readonly>
+          
+       </div>
+      </div>
+        <hr>
+        
+   
+    </div>
+  </div>
+  </div>
+</div>
+
+
+
+  <table class="table table-borderless table-responsive-sm table-responsive-md
+  table-responsive-lg">
+    <thead class="thead-light">
+    <!--  <th>Lig</th>-->
+    <th scope="col">Lig</th>
+      <th scope="col">Compte</th>
+     <th scope="col">Auxiliaire</th>
+     <th scope="col">Libellé <!--lib-tier--></th>
+     <th scope="col">Montant</th>
+     <th scope="col">Sens</th>
+    
+     
+   <!--    <th>Pièce</th>
+      <th>Montant en devise</th>
+      <th>Sens</th>-->
+     
+      <th>
+        <a class="btn btn-sm btn-success text-white" (click)="AddData(null,1)">
+            <i class="fa fa-plus"></i>Ajouter </a>
+      </th>
+    </thead>
+    <tbody>
+        <tr *ngIf="service.list.length==0" 
+         [class.text-danger]="!isValid && service.list.length ==0">
+            <td class="font-italic text-center" colspan="5">
+              Aucun compte sélectionné...
+            </td>
+          </tr>
+      <tr *ngFor="let item of service.list;let i=index;">
+      <td class="text-center" >{{item.lig}}</td> 
+      <td class="text-center">{{item.num_compte}}</td>  
+      <td class="text-center">{{item.aux}}</td> 
+      <td class="text-center">{{item.lib_tier}}</td>  
+    <td class="text-center">{{item.montant}}</td>
+    <td class="text-center">{{item.sens}}</td>
+    
+    
+
+    <!--  <td>{{item.num_piece}}</td>
+      <td>{{item.montant}}</td>
+      <td>{{item.sens}}</td>-->  
+      
+      <td>
+          <a class="btn btn-sm btn-info text-white" (click)="AddData(i,1)">
+              <i class="fa fa-pencil"></i></a>
+          <a class="btn btn-sm btn-danger text-white ml-1" (click)="onDelete(item,item.id,i)">
+              <i class="fa fa-trash"></i></a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="form-group row">
+        <div class="col-sm-4 mb-3 mb-sm-0">
+        <div class="form-group">
+            <label style="font-size: 15px;">Total Débit : </label>
+            <input type="text" class="form-control" id="totdeb" formControlName="totdeb" readonly>
+        </div>
+        </div> 
+        <div class="col-sm-4 mb-3 mb-sm-0">
+        <div class="form-group">
+            <label style="font-size: 15px;">Total Crédit  : </label>
+            <input type="text" class="form-control" id="totcred" formControlName="totcred" readonly>
+        </div>
+        </div>
+        <div class="col-sm-4 mb-3 mb-sm-0">
+        <div class="form-group">
+        <label style="font-size: 15px;">Solde : </label>
+        <input type="text" class="form-control" id="solde" formControlName="solde" readonly>
+        </div>
+        </div>        
+     </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+    <a class="btn btn-outline-dark ml-1" routerLink="/journal"><i class="fa fa-plus-square"></i> Liste </a>
+ </div>
+</form> 
+</div>
+<app-footer></app-footer>

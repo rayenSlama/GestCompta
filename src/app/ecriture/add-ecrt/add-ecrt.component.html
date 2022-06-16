@@ -1,0 +1,232 @@
+<mat-toolbar color="primary">
+    <div fxHide.gt-xs>
+        <button mat-icon-button >
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <div>
+    <h1>Saisie des Ecritures comptables</h1> 
+    </div>
+    
+  </mat-toolbar>
+<form [formGroup]="this.service.formData" (ngSubmit)="onSubmit()"  #localForm="ngForm">
+<input  type="hidden"  class="form-control" formControlName="lib_tier" id="lib_tier" >
+
+<div class="form-group row col-md-9" style="padding-top: 20px;">
+  <div class="form-group col-md-4">
+      <label style="font-size: 15px;">Num Ecriture : </label>
+      <input  type="text"  class="form-control" formControlName="numecrt" id="numecrt" readonly>
+  </div>  
+  <div class="col-md-4 form-group">
+        <label style="font-size: 15px;">Date :</label>
+      <input  type="date"  class="form-control" formControlName="date_ecrt"  id="date_ecrt" required>
+      <div *ngIf="localForm.touched && this.service.formData.get('date_ecrt').invalid" class="text-danger"> Veuillez saisir la date</div>
+  </div>
+ <div class="col-md-4 form-group">
+  <label style="font-size: 15px;">Libelle d'écriture : </label>
+  <input  type="text"  class="form-control" formControlName="libelle" id="libelle" required>
+  <div *ngIf="localForm.touched && this.service.formData.get('libelle').invalid" class="text-danger">Veuillez saisir la libellé d'écriture </div>
+</div>  
+
+
+  
+  <div class="form-group col-md-5">
+    <label style="font-size: 15px;">Journal : </label>
+
+    <div class="ng-autocomplete">
+      <ng-autocomplete
+        [data]="JournalList"
+        [searchKeyword]="keywordd"
+        [searchKeyword]="keyword"
+        placeholder="Entrez le libellé du journal"
+        (selected)='selectEvent($event)'
+        (inputChanged)='onChangeSearch($event)'
+        (inputFocused)='onFocused($event)'
+        historyIdentifier="JournalList"
+        [itemTemplate]="itemTemplate"
+        [notFoundTemplate]="notFoundTemplate"
+       >
+      </ng-autocomplete>
+    
+   <!--   <ng-template #itemTemplate let-item>-->
+  <!--     <a [innerHTML]="item.libelle"></a>--> 
+ <!-- <table class="table table-borderless table-responsive-sm table-responsive-md
+  table-responsive-lg">
+    <thead class="thead-light">
+    <th scope="col">Code</th>
+      <th scope="col">libelle</th>
+    
+    </thead>
+    <tbody>
+      
+      <tr *ngFor="let item of JournalList">
+      <td [innerHTML]="item.code_JRN"></td> 
+      <td [innerHTML]="item.libelle"></td> 
+
+    </tr>
+    </tbody>
+  </table>
+
+      </ng-template>-->
+      <ng-template #itemTemplate let-item>
+        <h5>code: {{ item.code_JRN }} -- libelle: <span [innerHTML]="item.libelle"></span> </h5>
+      </ng-template>
+    
+      <ng-template #notFoundTemplate let-notFound>
+        <div [innerHTML]="notFound"></div>
+      </ng-template>
+    </div>
+    <div *ngIf="localForm.touched && this.service.formData.get('code_JRN').invalid" class="text-danger"> Veuillez séléctioner le journal</div>
+</div>
+</div>
+
+
+
+  <div class="col-md-3" style="padding-top: 21px;">
+    <div class="card mb-3">
+      <div class="card-body" style="height:136px;">
+        <div class="row">
+    <!--      <table class="table table-borderless table-responsive-sm table-responsive-md
+  table-responsive-lg">
+    <thead class="thead-light">
+    
+     <th scope="col">Devise</th>
+     <th scope="col">Taux</th>
+     <th scope="col">Année</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of service.list;let i=index;">
+      <td class="text-center" >{{item.code_devise}}</td> 
+      <td class="text-center">{{item.taux}}</td>  
+      <td class="text-center">{{item.annee}}</td> 
+      </tr>
+      </tbody>
+      </table>-->
+  
+<div class="form-group">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend col-md-4">
+              <label class="input-group-text" for="inputGroupSelect01" style="width:90px;">Devise</label>
+            </div>
+            <select class="form-control" formControlName="code_devise" id="code_devise" required  (change)="OnSelectDevise($event.target)">
+              <option selected>Choisir...</option>
+              <option  *ngFor="let devise of this.DeviseList" value="{{devise.code_devise}}">{{devise.code_devise}}</option>
+            </select>
+            <div *ngIf="localForm.touched && this.service.formData.get('code_devise').invalid" class="text-danger">Code devise est obligatoire!</div>
+          </div>
+</div>
+
+        <hr>
+
+        <div class="form-group">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend col-md-3">
+              <label class="input-group-text" for="inputGroupSelect01">Taux</label>
+            </div>
+            <input  type="text"  class="form-control" formControlName="taux" id="taux" readonly>
+          
+       </div>
+      </div>
+
+     
+        
+       <hr>
+        <div class="form-group">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend col-md-3">
+              <label class="input-group-text" style="width:64px ;" for="inputGroupSelect01">Année</label>
+            </div>
+            <input  type="text"   class="form-control" formControlName="annee_devise" id="annee_devise" readonly>
+          
+       </div>
+      </div>
+        <hr>
+        
+   
+    </div>
+  </div>
+  </div>
+</div>
+
+
+
+  <table class="table table-borderless table-responsive-sm table-responsive-md
+  table-responsive-lg">
+    <thead class="thead-light">
+    <!--  <th>Lig</th>-->
+    <th scope="col">Lig</th>
+      <th scope="col">Compte</th>
+     <th scope="col">Auxiliaire</th>
+     <th scope="col">Pièce</th>
+     <th scope="col">Libellé <!--lib-tier--></th>
+     <th scope="col">Montant</th>
+     <th scope="col">Sens</th>
+    
+     
+   <!--    <th>Pièce</th>
+      <th>Montant en devise</th>
+      <th>Sens</th>-->
+     
+      <th>
+        <a class="btn btn-sm btn-success text-white" (click)="AddData(null,1)">
+            <i class="fa fa-plus"></i>Ajouter </a>
+      </th>
+    </thead>
+    <tbody>
+        <tr *ngIf="service.list.length==0" 
+         [class.text-danger]="!isValid && service.list.length ==0">
+            <td class="font-italic text-center" colspan="5">
+              Aucun compte sélectionné...
+            </td>
+          </tr>
+      <tr *ngFor="let item of service.list;let i=index;">
+      <td class="text-center" >{{item.lig}}</td> 
+      <td class="text-center">{{item.numcompte}}</td>  
+      <td class="text-center">{{item.code}}</td> 
+      <td class="text-center">{{item.num_piece}}</td> 
+      <td class="text-center">{{item.lib_tier}}</td>  
+    <td class="text-right">{{item.montant | number:'0.2'}}</td>
+    <td class="text-center">{{item.sens}}</td>
+    
+    
+
+    <!--  <td>{{item.num_piece}}</td>
+      <td>{{item.montant}}</td>
+      <td>{{item.sens}}</td>-->  
+      
+      <td>
+          <a class="btn btn-sm btn-info text-white" (click)="AddData(i,1)">
+              <i class="fa fa-pencil"></i></a>
+          <a class="btn btn-sm btn-danger text-white ml-1" (click)="onDelete(item,item.id,i)">
+              <i class="fa fa-trash"></i></a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="form-group row">
+        <div class="col-sm-4 mb-3 mb-sm-0">
+        <div class="form-group">
+            <label style="font-size: 15px;">Total Débit : </label>
+            <input type="text" class="form-control text-right" id="totdeb" formControlName="totdeb" readonly>
+        </div>
+        </div> 
+        <div class="col-sm-4 mb-3 mb-sm-0">
+        <div class="form-group">
+            <label style="font-size: 15px;">Total Crédit  : </label>
+            <input type="text" class="form-control text-right" id="totcred" formControlName="totcred" readonly>
+        </div>
+        </div>
+        <div class="col-sm-4 mb-3 mb-sm-0">
+        <div class="form-group">
+        <label style="font-size: 15px;">Solde : </label>
+        <input type="text"  class="form-control text-right" id="solde" formControlName="solde" readonly>
+        </div>
+        </div>        
+     </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+    <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="fa fa-close"></i> Annuler</button>
+    <a class="btn btn-outline-dark ml-1" routerLink="/journal"><i class="fa fa-plus-square"></i> Liste </a>
+ </div>
+</form> 
+

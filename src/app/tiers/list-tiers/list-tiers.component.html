@@ -1,0 +1,160 @@
+
+  <div class="header_top"><!--header_top-->
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-6">
+                  <div class="contactinfo">
+                      <ul class="nv nav-pills" style="list-style: none;">
+                       <!--  <li>
+                              <a><i class="fa fa-user"></i>Welcome Admin, {{name}}</a>
+                           </li>--> 
+                          <li style="padding-left:10px;"><a ><i class="fa fa-phone"></i>+216 71 95 12 48</a></li>
+                          <li *ngIf="this.userService.suser" style="padding-left:25px;"><a href="#"><i class="fa fa-user"></i>  Utilisateur, {{name}}</a></li>
+                          <li *ngIf="this.userService.admin" style="padding-left:25px;"><a href="#"><i class="fa fa-user"></i>  {{name}}</a></li>
+                      </ul>
+                      
+                  </div>
+              </div>
+              <div class="col-sm-6">
+                  <div class="social-icons pull-right">
+                      <ul>
+                          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                          <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                          <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                          <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                     </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div><!--/header_top-->
+  
+
+  <div class="header-middle"><!--header-middle-->
+    <div class="container">
+        <div class="row">
+
+         <!--   <div class="logo pull-left">
+                <a  [routerLink]="['']"><img src="assets/img/logo.JPG" alt="" style="margin-left: 0px;" width="100px"/></a>
+</div>-->  
+
+
+
+            <div class="col-sm-3">
+                <div class="logo pull-left">
+                    <a  [routerLink]="['']"><img src="assets/img/compt.JPG" alt="" style="margin-top: 20px;"/></a>
+                </div>
+            </div>
+    <!---->       
+   
+       
+
+    <!---->      
+            <div class="col-sm-9">
+                <div class="likHref icone_headerr">
+                    <a href="http://www.arabsoft.com.tn/" class=" active"><i class="fa fa-home"></i> Accueil</a>
+                    <a href="http://www.arabsoft.com.tn/a-propos" class=" "><i class="fa fa-align-justify"></i> A Propos</a>
+                    <a href="http://www.arabsoft.com.tn/contactez-nous1" class=" "><i class="fa fa-envelope"></i> Contactez-nous</a>
+                </div>
+
+
+
+                <div class="shop-menu pull-right">
+                    <ul>
+                    
+                        
+                      <li>
+                          <a>
+                            <i class="fa fa-bell" aria-hidden="true"></i>
+                            <app-msgiconbtn number="5"></app-msgiconbtn>
+                          </a>
+                          </li> 
+                          
+                        <li  (click)="logout()"><a  href="javascript:void(0)"><i class="fa fa-sign-out"></i> Logout</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<body>
+<mat-toolbar color="primary" style="margin-left: 129px; margin-top: 60px; width: 89.4%;" >
+   
+  <div class="pull-left">
+    Liste des Tiers
+  </div>
+<!--<div class=" pull-right">
+  <form (ngSubmit)="onChercher(f.value)" #f="ngForm" >
+    <div class="form-group">
+         
+        <input type="text" name="keyword" ngModel>
+        <button type="submit" class="btn btn-danger">
+            <span class="glyphicon glyphicon-search"></span>
+            Recherche</button>
+    </div>
+</form>
+
+</div>-->
+
+
+
+
+<div class="col-sm-10">
+<div class="search_box pull-right" >
+
+    <div class="form-group">
+    <input type="text" placeholder="Search" class="form-control" style="height: 40px;" [(ngModel)]="term">
+    </div>
+  
+</div>
+
+</div>
+</mat-toolbar>
+
+ <div class="col-md-11 col-md-offset-1">
+   <div class="table-responsive">
+    <table class="table table-bordered table-responsive-sm table-responsive-md
+   table-responsive-lg">
+    <thead>
+    <tr>
+    <th class="text-left" scope="col">ID</th>
+    <th class="text-left" scope="col">Code</th>
+    
+    <th class="text-left" scope="col">Libelle</th>
+    <th class="text-left" scope="col">Code tiers</th>
+    <th  class="text-left" scope="col">Adresse</th>
+    <th class="text-left" scope="col">Telephone</th>
+    <th  class="text-left" scope="col">Email</th>
+    <th   class="text-left" scope="col">Action</th>
+  
+    </tr>
+    </thead>
+    <tbody>
+
+
+    <tr *ngFor="let item of crudApi.list | filter:term  | paginate: { itemsPerPage: 7, currentPage: p } ">
+      <td>{{item.id}}</td>
+     <td>{{item.code}}</td>
+    <td>{{item.libelle}}</td>
+    <td>{{item.codetier}}</td>
+    <td>{{item.adresse}}</td>
+    <td>{{item.tel}}</td>
+    <td>{{item.email}}</td>
+    
+   
+    <td><button class="btn btn-sm btn-info"  style="margin-left: 10px; width: 35px; height: 26px;" (click) = "DetailsData(item.id)">
+      <i class="fa fa-info-circle" aria-hidden="true" style="font-size: 20px;"></i></button>
+      <button class="btn btn-warning" style="margin-left:20px; width: 35px; height: 26px;" (click) = "selectData(item)">
+      <i class="fa fa-pencil-square-o" ></i></button>
+   <button class="btn btn-danger" style="margin-left:20px; width: 35px; height: 26px;" (click) = "removeData(item.id)">
+      <i class="fa fa-trash-o"></i></button></td>
+       </tr>
+         </tbody>
+         </table>
+         </div>
+         <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+       </div>

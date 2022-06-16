@@ -1,0 +1,70 @@
+<div style="overflow-y: scroll; height:400px;" class="row justify-content-center">
+  <div class="col-md-12 col-md-offset-1">
+    <div class="col-md-11">
+      
+          <div class="card-header card-header-danger">
+            <div class="col-md-5">
+              <h4 class="card-title">Compte</h4>
+       </div>
+       <div class=" pull-right">
+        <button type="button"  class="btn btn-outline-dark ml-1" [mat-dialog-close]>
+          <i class="fa fa-close" style="color:antiquewhite"></i></button>
+       </div>
+       </div>
+      </div>
+  <br><br><br>
+      <form [formGroup]="this.crudApi.dataForm" (ngSubmit)="onSubmit()">
+        <input type="hidden"  formControlName="id" id="id">
+        <input type="hidden"  formControlName="codetier" id="codetier">
+     <!--  <div class="form-group">
+          <label style="font-size: 15px;">Tiers</label>
+          <select class="form-control" formControlName="code" id="code" 
+          (change)="OnSelectTier($event.target)">
+          <option value="0">-Select-</option>
+          <option *ngFor="let tier of this.TierList" value="{{tier.code}}">{{tier.code}}  {{tier.libelle}}</option>
+          </select>
+        </div>--> 
+        <div class="form-group">
+          <label style="font-size: 15px;">Tiers</label>
+          <select class="form-control" formControlName="codetier" id="codetier"  (keyup)="cal()">
+            <option value="0">-Select-</option>
+          <option value=Client>Client</option>
+          <option value=Fournisseur>Fournisseur</option>
+          <option value=Autre>Autre</option>
+          </select>
+          </div>
+
+
+
+        <div class="form-group">
+          <label>N° Compte</label>
+          <input type="text" class="form-control" formControlName="numcompte" id="numcompte" readonly  >
+          
+        </div>
+
+        <div class="form-group">
+          <label>Libelle</label>
+          <input type="text" class="form-control" formControlName="libellec" id="libellec">
+          
+        </div>
+        <div class="form-group">
+            <label>Date création</label>
+            <input type="date" class="form-control" formControlName="datecreation" id="datecreation">
+           
+          </div>
+          
+    
+          
+        
+          <div class="form-group">
+              <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+              <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]>
+                  <i class="fa fa-close"></i> Annuler</button>
+            </div>
+          
+      </form>
+    </div>
+  </div>
+
+
+

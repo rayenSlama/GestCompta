@@ -1,0 +1,109 @@
+<body class="bg-gradient-primary">
+  <div class="container">
+  <div class="row justify-content-center" style="padding-left: 430px; padding-top: 60px;" >
+    <div class="col-xl-9  col-md-7">
+  <div class="card o-hidden border-5 shadow-lg my-5">
+  <div class="card-body p-10">
+  <div class="row">
+  <div class="col-lg-4 justify-content-center">
+    <img src="assets/login/img/login8.jpg" class="img-circle " alt="User Image">
+  </div>
+  <div class="col-lg-8">
+  <div class="p-0">
+  <div class="text-center">
+    <h1 class="h4 text-gray-900 mb-4">Connexion</h1>
+  </div>
+  <form class = "user" [formGroup]="this.loginForm" (ngSubmit)="login()"  #localForm="ngForm">
+  
+    <div class="input-group mb-3">  
+      <div class="input-group-prepend">  
+       <span class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></span>  
+      </div>  
+      <input type="text" class="form-control sty1"  id="code" formControlName="code" placeholder="Taper le code" required  [class.is-invalid]="localForm.submitted && this.loginForm.get('code')?.invalid">
+      <div class="invalid-feedback" style="font: size 15px;">code invalide</div>
+     </div>
+
+
+
+
+    <div class="input-group mb-3">  
+     <div class="input-group-prepend">  
+      <span class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></span>  
+     </div>  
+     <input type="text" class="form-control sty1"  id="username" formControlName="username" placeholder="Taper votre nom " required  [class.is-invalid]="localForm.submitted && this.loginForm.get('username')?.invalid" >
+     <div class="invalid-feedback" style="font: size 15px;">Nom invalide</div>
+    </div>  
+
+
+    <div class="input-group mb-4">  
+     <div class="input-group-prepend">  
+      <span class="input-group-text"><i class="fa fa-lock" aria-hidden="true"></i></span>  
+     </div>
+      <input type="password" class="form-control sty1"  id="password" formControlName="password" placeholder="Taper votre mot de passe" required [class.is-invalid]="localForm.submitted && this.loginForm.get('password')?.invalid"><span class="sppn"><i class="fa fa-eye" aria-hidden="true" id="eye" (click)="ffff()"></i></span>
+      <div  class="invalid-feedback" style="font: size 15px;">Mot de passe invalide</div>
+    </div> 
+   
+
+
+
+    
+    <div class="input-group mb-4">  
+      <div class="input-group-prepend">  
+       <span class="input-group-text"><i class="fa fa-calendar" aria-hidden="true"></i></span>  
+      </div>
+      <!--    <input class="form-control" type="text" name="annee" id="annee" placeholder="Exercice" required [class.is-invalid]="localForm.submitted && this.loginForm.get('annee')?.invalid">-->
+      <select class="form-control" type="text" name="annee" id="annee" placeholder="Exercice" required [class.is-invalid]="localForm.submitted && this.loginForm.get('annee')?.invalid"  (change)="OnSelectExercice($event.target)">
+        <option selected>Exercice...</option>
+        <option  *ngFor="let exercice of this.ExerciceList" value="{{exercice.annee}}">{{exercice.annee}}</option>
+      </select>
+      <div class="invalid-feedback" style="font: size 15px;">Ce champ est invalide</div>
+    </div>
+   
+   <!--
+   
+
+    <div class="col-md-6">
+      <div class="form-group">
+      <label class="control-label">Date début d'exercice:</label>
+      <input class="form-control" type="text" name="exercice.date_debut" id="exercice.date_debut"  readonly>
+     
+    </div>
+   </div>
+
+
+   <div class="col-md-6">
+     <div class="form-group">
+     <label class="control-label">Date fin d'exercice:</label>
+     <input class="form-control" type="text" name="exercice.date_fin" id="exercice.date_fin"  readonly>
+   </div> 
+</div>-->
+<!--<br><br><br><br>-->
+
+    <div class="form-group">
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="customCheck">
+        <label class="custom-control-label" for="customCheck">Se souvenir de cette action</label>
+      </div>
+    </div>
+      <button class="btn btn-primary btn-user btn-block">Se Connecter</button>
+      <hr>
+  </form>
+      <hr>
+  <div class="text-center">
+    <a style="font-size: 15px;" [routerLink]="['/register']" href="">Mot de passe oublié?</a>
+  </div>
+  <div class="text-center">
+    <a style="font-size: 15px;" [routerLink]="['/register']" href="">Créer un compte!</a>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </body>
+
+
+

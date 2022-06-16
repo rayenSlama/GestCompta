@@ -1,0 +1,79 @@
+<div style="overflow-y: scroll; height:600px;" class="row justify-content-center">
+  <div class="col-md-12 col-md-offset-2">
+    <div class="col-md-12 col-md-offset-1" >
+      <div class="col-md-11">
+        
+        <div class="card-header card-header-danger" style="padding-left:-35px" >
+          <div class="col-md-5">
+            <h4 class="card-title">Ajout Fournisseur</h4>
+     </div>
+     <div class=" pull-right">
+      <button type="button"  class="btn btn-outline-dark ml-1" [mat-dialog-close]>
+        <i class="fa fa-close" style="color:antiquewhite"></i></button>
+     </div>
+     </div>
+    </div>
+      <form [formGroup]="this.crudApi.dataForm" (ngSubmit)="onSubmit()" style="padding-top:60px" #localForm="ngForm">
+        <input type="hidden"  formControlName="id" id="id">
+        <input  type="hidden"  class="form-control" formControlName="codetier" id="codetier" >
+        <div class="form-group">
+          <label>Code</label>
+          <input type="text" class="form-control" formControlName="code" id="code" readonly>
+          
+        </div>
+       
+        <div class="form-group">
+         
+           <label>Libelle</label>
+           <input type="text" class="form-control" formControlName="libelle" id="libelle" [class.is-invalid]="localForm.submitted && this.crudApi.dataForm.get('libelle')?.invalid">
+           <div class="invalid-feedback" style="font: size 15px;">Libellé du fournisseur invalide</div>
+         </div>
+     
+         <div class="form-group">
+             <label>adresse</label>
+             <input type="text" class="form-control" formControlName="adresse" id="adresse" [class.is-invalid]="localForm.submitted && this.crudApi.dataForm.get('adresse')?.invalid">
+             <div class="invalid-feedback" style="font: size 15px;">Adresse invalide</div>
+           </div>
+           <div class="form-group">
+             <label>Téléphone</label>
+             <input type="text" class="form-control" formControlName="tel" id="tel" [class.is-invalid]="localForm.submitted && this.crudApi.dataForm.get('tel')?.invalid">
+             <div class="invalid-feedback" style="font: size 15px;">Téléphone invalide</div>
+           </div>
+           <div class="form-group">
+             <label for="email">email</label>
+             <input type="text" class="form-control" formControlName="email" id="email" uniqueEmail >
+             <div *ngIf="localForm.touched && this.crudApi.dataForm.get('email').invalid">
+              <div *ngIf="this.crudApi.dataForm.get('email').errors.required" class="text-danger"> L'adresse email est obligatoire</div> 
+              <div  *ngIf="this.crudApi.dataForm.get('email').errors.email" class="text-danger">Adresse email invalide</div>
+              <div  *ngIf="this.crudApi.dataForm.get('email').errors['uniqueEmail']" class="text-danger">Adresse email déja existe!</div>
+             </div>
+
+
+
+           </div>
+           <div class="form-group">
+             <label>fax</label>
+             <input type="text" class="form-control" formControlName="fax" id="fax" [class.is-invalid]="localForm.submitted && this.crudApi.dataForm.get('fax')?.invalid">
+             <div class="invalid-feedback" style="font: size 15px;">fax invalide</div>
+           </div> 
+              <div class="form-group">
+             <label>mot de passe</label>
+             <input type="password" class="form-control" formControlName="pwd" id="pwd" [class.is-invalid]="localForm.submitted && this.crudApi.dataForm.get('pwd')?.invalid">
+             <div class="invalid-feedback" style="font: size 15px;">Mot de passe invalide</div>
+           </div>
+           <div class="form-group">
+            <label>login</label>
+            <input type="text" class="form-control" formControlName="login" id="login" [class.is-invalid]="localForm.submitted && this.crudApi.dataForm.get('login')?.invalid">
+            <div class="invalid-feedback" style="font: size 15px;">vérifier ce champ invalide</div>
+          </div>
+       
+           <div class="form-group">
+               <button type="submit" class="btn btn-dark"><i class="fa fa-database"></i> Submit</button>
+               <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]>
+                   <i class="fa fa-close"></i> Annuler</button>
+             </div>
+         
+       </form>
+     </div>
+   </div>
+  
