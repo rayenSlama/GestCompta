@@ -1,6 +1,9 @@
 {
   "name": "compta",
   "version": "0.0.0",
+  "engines" :{
+    "node":"14.15.5"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json --source-map=false --aot --live-reload=false",
